@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0 auto;
+			}
+			#log,#regist{
+				background-color: #FAF3E3;
+			}
+			#p1,#p2,#p3{
+				font-size: 10px;
+				color: red;
+			}
+			#content{
+				margin-top: 20px;
+				width: 204.8px;
+				height: 186.6px;
+				background-image: url(img/1.png);
+				background-size: contain;
+				border-radius: 80px;
+			}
+			#foot{
+				background-color: rgba(0,0,0,0);
+				border-color: #FAF3E3;
+				margin-top: 200px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="log" data-role="page">
+			<div id="content"></div>
+			<form action="url" method="get">
+				<input type="text" id="name" placeholder="请输入用户名"/>
+				<input type="password" style="margin-top: 0px;" id="password" placeholder="请输入密码" />
+				<div style="margin-right: 0;width: 100px;"><p>忘记密码？</p></div>
+				<input style="background-color: #1E6FEF;" type="button" id="login" value="登录" />
+				<a href="#regist"><input style="background-color: #1E6FEF;" type="button" id="register" value="注册" /></a>
+			</form>
+			<div id="foot" data-role="footer">
+				<p>第三方登录</p>
+				<div style="width: 100%;height: 2px;background-color: #ddbfaa;"></div>
+				<div data-role="controlgroup" data-type="horizontal">
+				      <a href="#" class="ui-btn"><div style="background-image: url(img/QQ.png);width: 40px;height: 40px;background-size: contain;"></div></a>
+				      <a href="#" class="ui-btn"><div style="background-image: url(img/wechat.png);width: 40px;height: 40px;background-size: contain;"></div></a>
+				      <a href="#" class="ui-btn"><div style="background-image: url(img/weibo.jpg);width: 40px;height: 40px;background-size: contain;"></div></a>
+				</div><br>
+			</div>
+		</div>
+		
+		<div id="regist" data-role="page">
+			<div id="content"></div>
+			<form action="url" method="get">
+				<input type="text" id="localname" placeholder="请输入用户名"/>
+				<p id="p1"></p>
+				<input type="password" id="passw" placeholder="请输入密码"/>
+				<p id="p2"></p>
+				<input type="password" id="testpassword" placeholder="请确认密码"/>
+				<p id="p3"></p><br>
+				<input type="button" style="background-color: #1E6FEF;" id="submit" value="提交" />
+				<input type="button" style="background-color: #1E6FEF;" id="clear" value="重置" />
+			</form>
+		</div>
+		<script type="text/javascript">
+			var p1 = document.getElementById("p1");
+			var p2 = document.getElementById("p2");
+			var p3 = document.getElementById("p3");
+			var str1 = new RegExp("[a-zA-Z][a-zA-Z0-9_]{7,14}");
+			var str2 = new RegExp("[0-9]{6,8}");
+			
+			login.onclick = function(){
+				// alert("nmsl");
+				var name = document.getElementById("name").value;
+				var pw = document.getElementById("password").value;
+				if(window.localStorage.getItem("localname")==name&&window.sessionStorage.getItem("password")==pw){
+					location.href ="主界面.html";
+				}
+				else{
+					alert("用户名或密码错误，请尝试重新输入或者重新注册");
+				}
+			}
+			
+			localname.onfocus = function(){
+				document.getElementById("p1").innerHTML = "用户名长度为8-15位，以字母开头，其它字符为字母数字或者下划线均可";
+			}
+			
+			localname.onkeyup = function(){
+				name = document.getElementById("localname").value;
+				if(!str1.test(name)||name.length>15){
+					p1.style.color = "red";
+					document.getElementById("p1").innerHTML = "用户名长度为8-15位，以字母开头，其它字符为字母数字或者下划线均可";
+				}
+				else{
+					p1.style.color = "green";
+					document.getElementById("p1").innerHTML = "用户名填写格式正确";
+				}
+			}
+			
+			passw.onfocus = function(){
+				document.getElementById("p2").innerHTML = "密码为6-8位的数字";
+			}
+			
+			passw.onkeyup = function(){
+				pw = document.getElementById("passw").value;
+				if(!str2.test(pw)||pw.length>8){
+					p2.style.color = "red";
+					document.getElementById("p2").innerHTML = "密码为6-8位的数字";
+				}
+				else{
+					p2.style.color = "green";
+					document.getElementById("p2").innerHTML = "密码填写格式正确";
+				}
+			}
+			
+			testpassword.onfocus = function(){
+				document.getElementById("p3").innerHTML = "密码确认失败";
+			}
+			
+			testpassword.onkeyup = function(){
+				pw1 = document.getElementById("testpassword").value;
+				if(pw!=pw1){
+					p3.style.color = "red";
+					document.getElementById("p3").innerHTML = "密码确认失败";
+				}
+				else{
+					p3.style.color = "green";
+					document.getElementById("p3").innerHTML = "密码确认成功";
+				}
+			}
+			submit.onclick = function(){
+				var name = document.getElementById("localname").value;
+				var pw = document.getElementById("passw").value;
+				var pw1 = document.getElementById("testpassword").value;
+				if(str1.test(name)&&str2.test(pw)&&pw==pw1){
+					alert("注册成功！");
+					window.localStorage.setItem("localname",name);
+					window.sessionStorage.setItem("password",pw);
+					location.href = "index.html";
+				}
+				else{
+					alert("请按要求输入用户名或密码！");
+				}
+			}
+			clear.onclick=function(){
+				p1.style.color = "red";
+				p2.style.color = "red";
+				p3.style.color = "red";
+				document.getElementById("localname").value = "";
+				document.getElementById("passw").value = "";
+				document.getElementById("testpassword").value = "";
+				document.getElementById("p1").innerHTML = "";
+				document.getElementById("p2").innerHTML = "";
+				document.getElementById("p3").innerHTML = "";
+			}
+			
+			if(window.localStorage.getItem("localname")!=null){
+				document.getElementById("name").value= window.localStorage.getItem("localname");
+			}
+		</script>
+	</body>
+</html>
