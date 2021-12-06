@@ -1,62 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-		<title></title>
-		<style type="text/css">
-			*{
-				padding: 0;
-				margin: 0 auto;
-			}
-			#log,#regist{
-				background-color: #FAF3E3;
-			}
-			#p1,#p2,#p3{
-				font-size: 10px;
-				color: red;
-			}
-			#content{
-				margin-top: 20px;
-				width: 204.8px;
-				height: 186.6px;
-				background-image: url(img/1.png);
-				background-size: contain;
-				border-radius: 80px;
-			}
-			#log form{
-				margin-left: 5%;
-				margin-right: 5%;
-				width: 90%;
-			}
-		</style>
+		<meta charset="UTF-8">
+		<title>英雄联盟可视化</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="shortcut icon" href="九离.ico" type="images/x-icon">
 	</head>
 	<body>
-		<div id="log" data-role="page">
-			<div id="content"></div>
-			<form action="url" method="get">
-				<input type="text" id="name" placeholder="请输入用户名"/>
-				<input type="password" style="margin-top: 0px;" id="password" placeholder="请输入密码" />
-				<input style="background-color: #1E6FEF;" type="button" id="login" value="登录" />
-			</form>
+		<div class="centerBox">
+			<div class="header"></div>
+			<div class="center-list">
+				<div class="centerBody">
+					<img src="img/ds.png" />
+					<p class="btn-p">
+						<a href="图/S11打野.html" target="_blank">S11打野象限图</a>
+						<a href="图/S11辅助.html" target="_blank">S11辅助象限图</a>
+						<a href="图/S11三C.html" target="_blank">S11三C象限图</a>
+						<a href="图/S11选手能力.html" target="_blank">S11选手能力图</a>
+						<br />
+						<br>
+						<br>
+						<a href="图/S赛AD.html" target="_blank">S赛AD表现</a>
+						<a href="图/S赛打野.html" target="_blank">S赛打野表现</a>
+						<a href="图/S赛上单.html" target="_blank">S赛上单表现</a>
+						<a href="图/中单数据.html" target="_blank">S赛中单表现</a>
+						<br />
+						<br>
+						<br>
+						<a href="图/登场数.html" target="_blank">全赛事英雄登场数</a>
+						<a href="图/伤害占比.html" target="_blank">S11战队伤害占比</a>
+						<a href="图/战队能力图.html" target="_blank">S11战队能力图</a>
+					</p>
+					<p class="txt-w"><font style="color: #ffffff;font-size:12px;letter-spacing: 11px;font-weight: 100;padding-left:  20px;">敢于想象&nbsp;&nbsp;敢于创造</font></p>
+				</div>
+			</div>
+			<div class="footer">
+			</div>
 		</div>
-		<script type="text/javascript">
-			login.onclick = function(){
-				// alert("nmsl");
-				var name = document.getElementById("name").value;
-				var pw = document.getElementById("password").value;
-				if(name=="2913962094"&&pw=="5211314"){
-					location.href ="表白.html";
-				}
-				else{
-					alert("用户名或密码错误，请尝试重新输入");
-				}
-			}
-		</script>
+		<embed  height="0" width="0" src="audio/C40.mp3"></embed>
 	</body>
+	<script src='js/simplex-noise.min.js'></script>
+	<script src="js/index.js"></script>
 </html>
