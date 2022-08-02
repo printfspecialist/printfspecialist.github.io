@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0 auto;
+			}
+			#pageone{
+				background-color: #EAF1FE;
+			}
+			#login,#register{
+				background-color: #FAF3E3;
+			}
+			#p1,#p2,#p3{
+				font-size: 10px;
+				color: red;
+			}
+			#content{
+				margin-top: 20px;
+				width: 204.8px;
+				height: 186.6px;
+				background-image: url(img/1.png);
+				background-size: contain;
+				border-radius: 80px;
+			}
+			#contentpro{
+					margin-top: 20px;
+					width: 140px;
+					height: 140px;
+					background-image: url(img/uesr.jpg);
+					background-size: contain;
+					border-radius: 70px;
+			}
+			#content1,#content2{
+				font-family: Fangsong;
+				font-size: 20px;
+			}
+			#foot{
+				background-color: rgba(0,0,0,0);
+				border-color: #FAF3E3;
+				margin-top: 200px;
+				text-align: center;
+			}
+			#head{
+				background-color: white;
+				text-align: center;
+				line-height: 50px;
+				font-size: 20px;
+				color: white;
+				width: 100%;
+				height: 50px;
+				position: relative;
+				background-color: #7AAFFA;
+			}
+			#head1,
+			#head2{
+				background-color: black;
+				position: absolute;
+				color: white;
+				margin-top: 10px;
+				font-size: 20px;
+			}
+			#head1{
+				left: 5px;
+			}
+			#head2{
+				right: 5px;
+				font-size: 30px;
+				margin-top: 4px;
+			}
+			#foot{
+				width: 100%;
+				position: absolute;
+				position: fixed;
+				bottom: 0;
+			}
+			#foot1{
+				margin-bottom: 0;
+				background-color: rgba(0,0,0,0);
+				border-color: #FAF3E3;
+			}
+			#time1{
+				position: absolute;
+				right: 0;
+				right: 15px;
+			}
+			ul,
+			li {
+				list-style: none;
+			}
+			
+			#div1 {
+				width: 100%;
+				height: 200px;
+				margin: 0px auto 0;
+				position: relative;
+			}
+			
+			#div2 {
+				position: relative;
+				margin-top: 10px;
+				width: 90%;
+				margin-right: 5%;
+				height: 200px;
+				overflow: hidden;
+			}
+			
+			#div3 {
+				width: 100%;
+				height: 200px;
+			}
+			
+			#div3 img {
+				width: 100%;
+				height: 200px;
+				float: left;
+				position: absolute;
+				display: none;
+				border-radius: 15px;
+			}
+			
+			#nav {
+				top: 180px;
+				overflow: hidden;
+				position: absolute;
+				left: 25%;
+				-webkit-user-select:none;
+				-moz-user-select:none;
+				-ms-user-select:none;
+				user-select:none;
+			}
+			
+			#nav li {
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				text-align: center;
+				background: #ccc;
+				font-size: 16px;
+				border-radius: 10px;
+				color: white;
+				margin: 0 10px;
+				float: left;
+				cursor: pointer; 
+			}
+			
+			#left {
+				width: 50px;
+				height:50px;
+				background: url(img/fx1.png) 0 0 no-repeat;
+				background-size: 50px 50px;
+				position: absolute;
+				left: 0;
+				top: 80px;
+				cursor: pointer;
+			}
+			
+			#right {
+				width: 50px;
+				height: 50px;
+				background:url(img/fx2.png) 0 0 no-repeat;
+				background-size: 50px 50px;
+				position: absolute;
+				right: 0;
+				top: 80px;
+				cursor: pointer;
+			}
+			#div3 .none{
+				display: none;
+			}
+			#div3 .block{
+				display: block;
+			}
+			#nav .select{
+				background: #7AAFFA;
+			}
+			#nav .noselect{
+				background: #ccc;
+			}
+			#user{
+				font-family: Fangsong;
+				font-size: 20px;
+			}
+			#pageself ul li a{
+				background-color: rgba(0,0,0,0);
+				/* color: white; */
+			}
+			#floor ul li a{
+				background-color: #7AAFFA;
+				color: white;
+			}
+			#content3{
+				position: relative;
+				width: 90%;
+				height: 150px;
+				background-color: white;
+				margin-top: 10px;
+				margin-left: 5%;
+				border-radius: 15px;
+				position: absolute;
+			}
+			#content4{
+				position: relative;
+				width: 90%;
+				height: 420px;
+				background-color: white;
+				margin-top: 170px;
+				margin-left: 5%;
+				border-radius: 15px;
+				position: absolute;
+			}
+			#content5{
+				position: relative;
+				width: 90%;
+				height: 200px;
+				margin-top: 30px;
+				margin-left: 5%;
+				border-radius: 15px;
+			}
+			#content5 ul li a{
+				background-color: rgba(0,0,0,0);
+				color: black;
+			
+			}
+			#content4 ul li a{				background-color: rgba(0,0,0,0);
+				color: black;
+			}
+			#pageself,#information{
+				background-color: #EAF1FE;
+			}
+			#information ul li a{
+				background-color: rgba(0,0,0,0);
+			}
+			.p,.h1{
+				word-wrap: break-word;
+				word-break: break-all;
+			}
+			/* #ul1 li a p{
+				float: left;
+				margin-left: 10px;
+			} */
+		</style>
+	</head>
+	<body>
+		<div id="pageone" data-role="page">
+			<div data-role="header" id="head">
+				首页
+			</div>
+			
+			<div id="div1">
+				<div id="div2">
+					<div id="div3">
+						<img class="block" src="img/1.jpg">
+						<img src="img/2.jpg">
+						<img src="img/3.jpg">
+						<img src="img/4.jpg">
+						<img src="img/5.jpg">
+					</div>
+					<ul id="nav">
+						<li onmouseover="Get()" class="select" onmouseout="Redo()">1</li>
+						<li onmouseover="Get()" onmouseout="Redo()">2</li>
+						<li onmouseover="Get()" onmouseout="Redo()">3</li>
+						<li onmouseover="Get()" onmouseout="Redo()">4</li>
+						<li onmouseover="Get()" onmouseout="Redo()">5</li>
+					</ul>
+					<p id="left" onclick="TurnLeft()" onmouseout="Redo()" onmouseover="Out()"></p>
+					<p id="right" onclick="TurnRight()" onmouseout="Redo()" onmouseover="Out()"></p>
+				</div>
+			</div>
+		
+			<div  data-role="main" id="content3">
+			    <a href="#shiwu1"><div style="margin-left: 6%;float: left; border-radius: 50px; position: relative; margin-top: 7%; width: 25%;height: 62%;background-repeat: no-repeat; background-image: url(img/77.jpg);background-size: contain;"></div></a>
+				<a href="#change1"><div style="margin-left: 6%;float: left;border-radius: 50px; position: relative; margin-top: 7%; width: 25%;height: 62%;background-repeat: no-repeat; background-image: url(img/88.jpg);background-size: contain;"></div></a>
+				<a href="#makefriend"><div style="margin-left: 6%;float: left;border-radius: 50px; position: relative; margin-top: 7%; width: 25%;height: 62%;background-repeat: no-repeat; background-image: url(img/99.jpg);background-size: contain;"></div></a>
+			</div>
+			
+			<div  data-role="main" id="content4">
+				<div style="width: 100%;height: 20px;margin-top: 10px;">
+					<div style="width: 2px;float: left; height: 20px;margin-left: 10px;background-color: #7AAFFA;"></div>
+					<a href="#" style="text-decoration: none;"><div style="color: #7AAFFA;margin-left: 10px;float: left;">推荐</div></a>
+					<a href="#search" style="text-decoration: none;"><div style="color: #7AAFFA;margin-left: 330px;">更多</div></a>
+					<ul data-role="listview" data-icon = "false" style="margin-top: 5px;">
+					    <li><a href="#bicycle">
+							<h1>想卖一个自行车，八成新</h1>
+							<p style="color: orange;">400</p>
+							<p style="float: left;">张三</p>
+							<p style="float: left;margin-left: 10px;">2021/06/13</p>
+							<p style="float: right;">2000人看过</p>
+						</a></li>
+					    <li><a href="#suanfa">
+							<h1>八成新的《算法设计与分析》</h1>
+							<p style="color: orange;">30</p>
+							<p style="float: left;">王五</p>
+							<p style="float: left;margin-left: 10px;">2021/06/14</p>
+							<p style="float: right;">1989人看过</p>
+						</a></li>
+					    <li><a href="#chair">
+							<h1>用了四年的电竞椅子</h1>
+							<p style="color: orange;">80</p>
+							<p style="float: left;">李四</p>
+							<p style="float: left;margin-left: 10px;">2021/06/09</p>
+							<p style="float: right;">888人看过</p>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div data-role="footer" id="foot">
+				<div data-role="navbar" id="floor">
+					<ul>
+						<li><a href="#pageone" data-icon="home">首页</a></li>
+						<li><a href="#passage" data-icon="mail">信息</a></li>
+						<li><a href="#pageself" data-icon="user" id="me">我</a></li>
+					</ul>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div id="search" data-role="page">	
+			<div data-role="main" class="ui-content">
+				<form method="post">
+				<div class="ui-field-contain" style="text-decoration: none;">
+					<label for="fullname"></label>
+					<input type="text" name="fullname">       
+				</div>
+				<div  data-role="main" id="content5">
+					<div style="width: 100%;height: 20px;margin-top: 10px;width: 100%;">
+						<div style="width: 2px;float: left; height: 20px;background-color: #7AAFFA;"></div>
+						<div style="color: #7AAFFA;margin-left: 10px;">推荐</div>
+						<ul data-role="listview" data-icon = "false" style="margin-top: 5px;">
+						    <li><a href="#bicycle">
+								<h1>想卖一个自行车，八成新</h1>
+							</a></li>
+						    <li><a href="#suanfa">
+								<h1>八成新的《算法设计与分析》</h1>
+							</a></li>
+						    <li><a href="#chair">
+								<h1>用了四年的电竞椅子</h1>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+				<a href="#" style="text-decoration: none;"><input id="submit10" type="submit" value="搜索"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="chair" data-role="page">
+			<div style="background-image: url(img/chair.jpg);width: 100%;height: 248px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">用了四年的电竞椅子</a>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul8">
+			    <li><a href="#">
+					<p style="color: orange;">400</p>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+				</a></li>
+			    <li><a href="#">
+					<p style="color: orange;">500</p>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+				</a></li>
+			</ul>
+			<a href="#chair+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="chair+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname7">       
+					<label for="bday">出价：</label>
+					<input type="text" name="bday" id="money3">
+				</div>
+				<a href="#chair" style="text-decoration: none;"><input id="submit8" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="suanfa" data-role="page">
+			<div style="background-image: url(img/suanfa.jpg);width: 100%;height: 248px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">八成新的《算法设计与分析》</a>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul7">
+			    <li><a href="#">
+					<p style="color: orange;">400</p>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+				</a></li>
+			    <li><a href="#">
+					<p style="color: orange;">500</p>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+				</a></li>
+			</ul>
+			<a href="#suanfa+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="suanfa+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname6">       
+					<label for="bday">出价：</label>
+					<input type="text" name="bday" id="money2">
+				</div>
+				<a href="#suanfa" style="text-decoration: none;"><input id="submit7" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="passage" data-role="page" style="background-color: #EAF1FE;">
+			<div data-role="header" id="head">
+				信息
+			</div>
+			
+			<ul data-role="listview" data-icon = "false">
+			    <li><a href="#" id="text2">
+					<img src="img/111.jpg" >
+					<h1>宝,我今天去输液了,想你的夜</h1>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+				</a></li>
+			    <li><a href="#">
+					<img src="img/uesr.jpg" >
+					<h1>我命油我不油天</h1>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+				</a></li>
+			</ul>
+			
+			<div data-role="footer" id="foot">
+				<div data-role="navbar" id="floor">
+					<ul>
+						<li><a href="#pageone" data-icon="home">首页</a></li>
+						<li><a href="#passage" data-icon="mail">信息</a></li>
+						<li><a href="#pageself" data-icon="user" id="me">我</a></li>
+					</ul>
+				</div>
+			</div>
+		
+		</div>
+		
+		<div id="bicycle" data-role="page">
+			<div style="background-image: url(img/bicycle.jpg);width: 100%;height: 248px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">想卖一个自行车，八成新</a>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul6">
+			    <li><a href="#" id="text4">
+					<p style="color: orange;">400</p>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+				</a></li>
+			    <li><a href="#">
+					<p style="color: orange;">500</p>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+				</a></li>
+			</ul>
+			<a href="#bicycle+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="bicycle+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname5">       
+					<label for="bday">出价：</label>
+					<input type="text" name="bday" id="money1">
+				</div>
+				<a href="#bicycle" style="text-decoration: none;"><input id="submit6" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="shiwu1" data-role="page">
+			<div style="background-image: url(img/失物招领.png);width: 100%;height: 248px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: white;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">失物招领</a>
+				<div data-role="navbar" style="margin-top: 35%;">
+					<ul>
+						<li><a href="#shiwu1" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">失物招领</a></li>
+						<li><a href="#shiwu2" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">寻物启事</a></li>
+					</ul>
+				</div>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul1">
+			    <li><a href="#" id="text1">
+					<h1>捡到现金若干</h1>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">2000人看过</p>
+				</a></li>
+			    <li><a href="#">
+					<h1>捡到外语学院王三校园卡</h1>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+					<p style="float: right;">1989人看过</p>
+				</a></li>
+			    <li><a href="#">
+					<h1>捡到一个水杯，不知道是谁的</h1>
+					<p style="float: left;">李四</p>
+					<p style="float: left;margin-left: 10px;">2021/06/09</p>
+					<p style="float: right;">888人看过</p>
+				</a></li>
+				<li><a href="#">
+					<h1>捡到现金若干</h1>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">2000人看过</p>
+				</a></li>
+				<li><a href="#">
+					<h1>捡到外语学院王三校园卡</h1>
+					<p style="float: left;">王五</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+					<p style="float: right;">1989人看过</p>
+				</a></li>
+				<li><a href="#">
+					<h1>捡到一个水杯，不知道是谁的</h1>
+					<p style="float: left;">李四</p>
+					<p style="float: left;margin-left: 10px;">2021/06/09</p>
+					<p style="float: right;">888人看过</p>
+				</a></li>
+				<a href="#shiwu1+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+			</ul>
+		</div>
+		
+		<div  id="shiwu1+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname">       
+					<label for="bday">描述：</label>
+					<input type="text" name="bday" id="fullp">
+				</div>
+				<a href="#shiwu1" style="text-decoration: none;"><input id="submit1" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="shiwu2" data-role="page">
+			<div style="background-image: url(img/失物招领.png);width: 100%;height: 248px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: white;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">寻物启事</a>
+				<div data-role="navbar" style="margin-top: 35%;">
+					<ul>
+						<li><a href="#shiwu1" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">失物招领</a></li>
+						<li><a href="#shiwu2" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">寻物启事</a></li>
+					</ul>
+				</div>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul2">
+			    <li><a href="#">
+					<h1>本人丢失一张校园卡，有没有同学捡到，请联系我</h1>
+					<p style="float: left;">赵二</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">1212人看过</p>
+				</a></li>
+			</ul>
+			<a href="#shiwu2+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="shiwu2+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname1">       
+					<label for="bday">描述：</label>
+					<input type="text" name="bday" id="fullp1">
+				</div>
+				<a href="#shiwu2" style="text-decoration: none;"><input id="submit2" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="change1" data-role="page">
+			<div style="background-image: url(img/220.jpg);width: 100%;height: 185px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: white;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">淘点宝贝</a>
+				<div data-role="navbar" style="margin-top: 20%;">
+					<ul>
+						<li><a href="#change1" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">淘点宝贝</a></li>
+						<li><a href="#change2" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">换点银子</a></li>
+					</ul>
+				</div>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul3">
+			    <li><a href="#">
+					<h1>想买一个自行车，代步，价格私</h1>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">2000人看过</p>
+				</a></li>
+			</ul>
+			<a href="#change1+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="change1+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname2">       
+					<label for="bday">描述：</label>
+					<input type="text" name="bday" id="fullp2">
+				</div>
+				<a href="#change1" style="text-decoration: none;"><input id="submit3" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="change2" data-role="page">
+			<div style="background-image: url(img/220.jpg);width: 100%;height: 185px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: white;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">换点银子</a>
+				<div data-role="navbar" style="margin-top: 20%;">
+					<ul>
+						<li><a href="#change1" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">淘点宝贝</a></li>
+						<li><a href="#change2" style="font-size: 20px; color: white; background-color: rgba(0,0,0,0);border-color: rgba(0,0,0,0);">换点银子</a></li>
+					</ul>
+				</div>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul4">
+			    <li><a id="zhangsan">
+					<h1>想卖一个自行车，八成新，价格可商议</h1>
+					<p style="color: orange;">400</p>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">2000人看过</p>
+				</a></li>
+			</ul>
+			<a href="#change2+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="change2+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname3">       
+					<label for="bday">描述：</label>
+					<input type="text" name="bday" id="fullp3">
+					<label for="fullname">价格：</label>
+					<input type="text" name="fullname" id="money">  
+				</div>
+				<a href="#change2" style="text-decoration: none;"><input id="submit4" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="makefriend" data-role="page" style="background-color:#FAF3E3">
+			<!-- <div data-role="header" id="head">
+				交友圈
+			</div> -->
+			<div style="background-image: url(img/背景.jpg);width: 100%;height: 270px;background-repeat: no-repeat;background-size: contain;">
+				<a href="#pageone" data-role="button" data-icon = "arrow-l" style="color: white;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">交友圈</a>
+			</div>
+			<ul data-role="listview" data-icon = "false" id="ul5">
+			    <li><a href="#" id="text3">
+					<img src="img/uesr.jpg" >
+					<h1>有无王者荣耀爱好者一起上分</h1>
+					<p style="float: left;">张三</p>
+					<p style="float: left;margin-left: 10px;">2021/06/13</p>
+					<p style="float: right;">2000人看过</p>
+				</a></li>
+			    <li><a href="#">
+					<img src="img/111.jpg" >
+					<h1>7月去厦门有无集美一起拼酒店,本人女</h1>
+					<p style="float: left;">郭美美</p>
+					<p style="float: left;margin-left: 10px;">2021/06/14</p>
+					<p style="float: right;">1989人看过</p>
+				</a></li>
+			    <li><a href="#">
+					<img src="img/111.jpg" >
+					<h1>26号中华中学教资考试有无拼车</h1>
+					<p style="float: left;">游点香</p>
+					<p style="float: left;margin-left: 10px;">2021/06/09</p>
+					<p style="float: right;">888人看过</p>
+				</a></li>
+			</ul>
+			<a href="#friends+"><div style="border-radius: 50%; right: 2%; width: 50px;height: 50px;position: fixed;background-color: blue;bottom: 20%;color: white; line-height: 40px;font-size: 50px;text-align: center;">+</div></a>
+		</div>
+		
+		<div  id="friends+"  data-role="page">
+			<div data-role="header">
+				<h1>文本输入</h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname" id="fullname4">       
+					<label for="bday">内容：</label>
+					<input type="text" name="bday" id="fullp4"> 
+				</div>
+				<a href="#makefriend" style="text-decoration: none;"><input id="submit5" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div  id="fankui"  data-role="page">
+			<div data-role="header">
+				<h1>反馈</h1>
+				<a href="#pageself" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">我</a>
+			</div>
+		
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">
+					<label for="fullname">姓名：</label>
+					<input type="text" name="fullname">       
+					<label for="bday">反馈内容:</label>
+					<input type="text" name="bday">
+				</div>
+				<a href="#pageself" style="text-decoration: none;"><input id="submit10" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="pageself" data-role="page">
+			<div id="contentpro"></div>
+			<div id="foot1" data-role="footer">
+				<h1 id="user"></h1>
+			</div>
+			<ul data-role="listview">
+			    <li><a href="#information">个人信息</a></li>
+			    <li><a href="#">设置</a></li>
+				<li><a href="#local">修改用户名</a></li>
+				<li><a href="#pass" id="changepass">修改密码</a></li>
+				<li><a href="#myfind">我的发布</a></li>
+			    <li><a href="#fankui">给我们提建议吧</a></li>
+			    <li><a id="exit">退出登录</a></li>
+			</ul>
+			
+			<div data-role="footer" id="foot">
+				<div data-role="navbar" id="floor">
+					<ul>
+						<li><a href="#pageone" data-icon="home">首页</a></li>
+						<li><a href="#passage" data-icon="mail">信息</a></li>
+						<li><a href="#pageself" data-icon="user" id="me">我</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+		<div  id="pass"  data-role="page">
+			<!-- <div data-role="header">
+				<h1>修改密码</h1>
+			</div> -->
+			<a href="#pageself" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">修改密码</a>
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">   
+					<label for="bday">新密码:</label>
+					<input type="text" name="bday" id="newpass">
+				</div>
+				<a href="#pageself" style="text-decoration: none;"><input id="submit11" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div  id="local"  data-role="page">
+			<!-- <div data-role="header">
+				<h1>修改用户名</h1>
+			</div> -->
+			<a href="#pageself" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">修改用户名</a>
+			<div data-role="main" class="ui-content">
+				<form method="post" action="demo_form.php">
+				<div class="ui-field-contain">   
+					<label for="bday">新用户名:</label>
+					<input type="text" name="bday" id="newpass">
+				</div>
+				<a href="#pageself" style="text-decoration: none;"><input id="submit12" type="submit" value="提交"></a>
+				</form>
+			</div>
+		</div>
+		
+		<div id="myfind" data-role="page">
+			<div data-role="header" id="head">
+				我的发布
+				<a href="#pageself" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);">我</a>
+			</div>
+			
+			<ul data-role="listview" data-icon = "false" id="ul10">
+				
+			</ul>
+		</div>
+		
+		<div id="information" data-role="page">
+			<ul data-role="listview">
+				<a href="#pageself" data-role="button" data-icon = "arrow-l" style="color: black;margin: 0 0;text-align: left; background-color: rgba(0,0,0,0); border-color: rgba(0,0,0,0);"></a>
+				<!-- <li data-role="list-divider" style="text-align: center;">学生</li> -->
+			    <li><a href="#">学号:&nbsp;&nbsp;&nbsp;&nbsp;123456789</a></li>
+			    <li><a href="#">姓名:&nbsp;&nbsp;&nbsp;&nbsp;张三</a></li>
+			    <li><a href="#">性别:&nbsp;&nbsp;&nbsp;&nbsp;男</a></li>
+				<li><a href="#">学校:&nbsp;&nbsp;&nbsp;&nbsp;五道口职业技术学院</a></li>
+			    <li><a href="#">学院:&nbsp;&nbsp;&nbsp;&nbsp;马克思主义学院</a></li>
+			    <li><a href="#">专业:&nbsp;&nbsp;&nbsp;&nbsp;马克思理论研究</a></li>
+			    <li><a href="#">班级:&nbsp;&nbsp;&nbsp;&nbsp;201901</a></li>
+			</ul>
+		</div>
+		
+		<div id="safe" data-role="page">
+			
+		</div>
+		
+		<script type="text/javascript">
+			var S = document.getElementById("div3").children;
+			var C = document.getElementById("nav").children;
+			var start = 0;
+			var timer = null;
+			
+			var name = window.localStorage.getItem("localname");
+			document.getElementById("user").innerText = name;
+			
+			changepass.onclick = function(){
+				
+			}
+			
+			function Change(){
+				if(start == S.length) start = 0;
+				for(var i=0;i<S.length;i++){
+					S[i].className = "none";
+					C[i].className = "noselect";
+				}
+				S[start].className = "block";
+				C[start].className = "select";
+				start++;
+			}
+			function Get(){
+				window.clearInterval(timer);
+				var getNum = event.target.innerText - 1;
+				for(var i=0;i<S.length;i++){
+					S[i].className = "none";
+					C[i].className = "noselect";
+				}
+				S[getNum].className = "block";
+				C[getNum].className = "select";
+				start = getNum;
+			}
+			function Redo(){
+				timer = setInterval(Change,1000);
+			}
+			function Out(){
+				window.clearInterval(timer);
+				for(var i=0;i<S.length;i++){
+					if(S[i].className=="block"){
+						start = i;
+						break;
+					}
+				}
+			}
+			function TurnLeft(){
+				if(start>=1) var Num = start - 1;
+				else Num = S.length - 1;
+				for(var i=0;i<S.length;i++){
+					S[i].className = "none";
+					C[i].className = "noselect";
+				}
+				S[Num].className = "block";
+				C[Num].className = "select";
+				start = Num;
+				// timer = setInterval(Change,1000);
+			}
+			function TurnRight(){
+				// window.clearInterval(timer);
+				if(start<S.length-1) var Num = start + 1;
+				else Num = 0;
+				for(var i=0;i<S.length;i++){
+					S[i].className = "none";
+					C[i].className = "noselect";
+				}
+				S[Num].className = "block";
+				C[Num].className = "select";
+				start = Num;
+				// timer = setInterval(Change,1000);
+			}
+			timer = setInterval(Change,1000);
+			
+			submit1.onclick = function(){
+				var date = new Date();
+				var times = parseInt(5000*Math.random()); 
+				var mydate = date.toLocaleDateString();
+				var name = document.getElementById("fullname").value;
+				var s = document.getElementById("fullp").value;
+				var ul = document.getElementById("ul1");
+				var li = document.createElement("li");
+				li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul.appendChild(li);
+				
+				var ul1 = document.getElementById("ul10");
+				var li1 = document.createElement("li");
+				li1.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul1.appendChild(li1);
+			}
+			
+			 submit2.onclick = function(){
+			 	var date = new Date();
+			 	var times = parseInt(5000*Math.random()); 
+			 	var mydate = date.toLocaleDateString();
+			 	var name = document.getElementById("fullname1").value;
+			 	var s = document.getElementById("fullp1").value;
+			 	var ul = document.getElementById("ul2");
+			 	var li = document.createElement("li");
+			 	li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+			 	ul.appendChild(li);
+				
+				var ul1 = document.getElementById("ul10");
+				var li1 = document.createElement("li");
+				li1.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul1.appendChild(li1);
+			 }
+			
+			submit3.onclick = function(){
+				var date = new Date();
+				var times = parseInt(5000*Math.random()); 
+				var mydate = date.toLocaleDateString();
+				var name = document.getElementById("fullname2").value;
+				var s = document.getElementById("fullp2").value;
+				var ul = document.getElementById("ul3");
+				var li = document.createElement("li");
+				li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul.appendChild(li);
+				
+				var ul1 = document.getElementById("ul10");
+				var li1 = document.createElement("li");
+				li1.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul1.appendChild(li1);
+			}
+			
+			submit4.onclick = function(){
+				var date = new Date();
+				var times = parseInt(5000*Math.random()); 
+				var mydate = date.toLocaleDateString();
+				var name = document.getElementById("fullname3").value;
+				var s = document.getElementById("fullp3").value;
+				var money = document.getElementById("money").value;
+				var ul = document.getElementById("ul4");
+				var li = document.createElement("li");
+				li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="color: orange;">'+money+'</p><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul.appendChild(li);
+				
+				var ul1 = document.getElementById("ul10");
+				var li1 = document.createElement("li");
+				li1.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><h1>'+s+'</h1><p style="color: orange;">'+money+'</p><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;">'+times+'人看过</p></a>'
+				ul1.appendChild(li1);
+			}
+			
+			submit5.onclick = function(){
+				var date = new Date();
+				var times = parseInt(5000*Math.random()); 
+				var mydate = date.toLocaleDateString();
+				var name = document.getElementById("fullname4").value;
+				var s = document.getElementById("fullp4").value;
+				var money = document.getElementById("money").value;
+				var ul = document.getElementById("ul5");
+				var li = document.createElement("li");
+				li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><img src="img/111.jpg" ><h1>'+s+'</h1><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p><p style="float: right;word-wrap: break-word;word-break: break-all;">'+times+'人看过</p></a>'
+				li.className = "ui-li-has-thumb";
+				ul.appendChild(li);
+			}
+			
+			submit6.onclick = function(){
+				var date = new Date();
+				var times = parseInt(5000*Math.random()); 
+				var mydate = date.toLocaleDateString();
+				var name = document.getElementById("fullname5").value;
+				var money = document.getElementById("money1").value;
+				var ul = document.getElementById("ul6");
+				var li = document.createElement("li");
+				li.innerHTML = '<a href="#" style="text-decoration: none;"class="ui-btn"><p style="color: orange;">'+money+'</p><p style="float: left;">'+name+'</p><p style="float: left;margin-left: 10px;">'+mydate+'</p></a>'
+				ul.appendChild(li);
+			}
+			
+			zhangsan.onclick = function(){
+				window.location.href = "聊天.html";
+			}
+			
+			exit.onclick = function(){
+				window.location.href = "登录与注册.html";
+			}
+			
+			text1.onclick = function(){
+				window.location.href = "聊天.html";
+			}
+			
+			text2.onclick = function(){
+				window.location.href = "聊天.html";
+			}
+			
+			text3.onclick = function(){
+				window.location.href = "聊天.html";
+			}
+			
+			text4.onclick = function(){
+				window.location.href = "聊天.html";
+			}
+		</script>
+	</body>
+</html>
